@@ -19,21 +19,21 @@ import { ImgClip } from '@appres/imgclip'
 ### Paste image data from clipboard as base64 format.
 
 ```javascript
-ImgClip.paste((blob) => {
-    if(blob.startsWith("blob:")) {
-        ImgClip.imgurlToBase64(blob).then((data) => {
+ImgClip.paste((url) => {
+    if(url.startsWith("blob:")) {
+        ImgClip.imgurlToBase64(url).then((data) => {
             console.log("imgurlToBase64:");
             console.log(data);
         });
-        ImgClip.imgurlToArrayBuffer(blob).then((data) => {
+        ImgClip.imgurlToArrayBuffer(url).then((data) => {
             console.log("imgurlToArrayBuffer:");
             console.log(data);
         });
-        ImgClip.imgurlToBytes(blob).then((data) => {
+        ImgClip.imgurlToBytes(url).then((data) => {
             console.log("imgurlToBytes:");
             console.log(data);
         });
-        ImgClip.imgurlToReadable(blob).then((data) => {
+        ImgClip.imgurlToReadable(url).then((data) => {
             console.log("imgurlToReadable:");
             console.log(data);
         });

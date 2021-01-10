@@ -84,10 +84,10 @@ var ImgClip = /** @class */ (function () {
     if(typeof(listener) == "function"){
       window.addEventListener("paste", (event) => {   
         pasteImage(event, (image) => {
-          let URLOBJ = window.URL || window.webkitURL;
           if(isURL(image)) {
             listener(image.toString());
           } else {
+            let URLOBJ = window.URL || window.webkitURL;
             let imgurl = URLOBJ.createObjectURL(image);
             listener(imgurl);  
           }
