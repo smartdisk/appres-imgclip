@@ -22,6 +22,19 @@ import { ImgClip } from '@appres/imgclip'
 ImgClip.paste((blob) => {
     if(blob.startsWith("blob:")) {
         ImgClip.imgurlToBase64(blob).then((data) => {
+            console.log("imgurlToBase64:");
+            console.log(data);
+        });
+        ImgClip.imgurlToArrayBuffer(blob).then((data) => {
+            console.log("imgurlToArrayBuffer:");
+            console.log(data);
+        });
+        ImgClip.imgurlToBytes(blob).then((data) => {
+            console.log("imgurlToBytes:");
+            console.log(data);
+        });
+        ImgClip.imgurlToReadable(blob).then((data) => {
+            console.log("imgurlToReadable:");
             console.log(data);
         });
     }

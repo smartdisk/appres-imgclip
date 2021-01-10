@@ -45,6 +45,15 @@ var ImgClip = /** @class */ (function () {
     }
     return window.btoa( binary );
   }
+  const _bufferToBytes = (buffer) => {
+    var binary = '';
+    var bytes = new Uint8Array( buffer );
+    var len = bytes.byteLength;
+    for (var i = 0; i < len; i++) {
+        binary += String.fromCharCode( bytes[ i ] );
+    }
+    return binary;
+  }
   const _imgurlToReadable = (imgurl) => {
     return fetch(imgurl).then(res => {
       return res.body;
@@ -60,6 +69,13 @@ var ImgClip = /** @class */ (function () {
       return res.arrayBuffer();
     }).then(arrayBuffer => {
       return _bufferToBase64(arrayBuffer);
+    });
+  }
+  const _imgurlToBytes = (imgurl) => {
+    return fetch(imgurl).then(res => {
+      return res.arrayBuffer();
+    }).then(arrayBuffer => {
+      return _bufferToBytes(arrayBuffer);
     });
   }
 
@@ -92,6 +108,9 @@ var ImgClip = /** @class */ (function () {
   ImgClip.prototype.imgurlToArrayBuffer = function (imgurl) {
     return _imgurlToArrayBuffer(imgurl);
   };
+  ImgClip.prototype.imgurlToBytes = function (imgurl) {
+    return _imgurlToBytes(imgurl);
+  };
 
 
   ImgClip.imgclip = new ImgClip();
@@ -109,6 +128,9 @@ var ImgClip = /** @class */ (function () {
   };
   ImgClip.imgurlToArrayBuffer = function(imgurl) {
     return this.imgclip.imgurlToArrayBuffer(imgurl);
+  };
+  ImgClip.imgurlToBytes = function(imgurl) {
+    return this.imgclip.imgurlToBytes(imgurl);
   };
 
   return ImgClip;

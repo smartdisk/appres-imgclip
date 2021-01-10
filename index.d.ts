@@ -13,4 +13,7 @@ export declare class ImgClip {
 
   static imgurlToArrayBuffer(imgurl: any): Promise<any>;
   imgurlToArrayBuffer(imgurl: any): Promise<any>;  
+
+  static imgurlToBytes(imgurl: any): Promise<any>;
+  imgurlToBytes(imgurl: any): Promise<any>;  
 }
