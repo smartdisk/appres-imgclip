@@ -164,6 +164,10 @@ var ImgClip = /** @class */ (function () {
   ImgClip.prototype.bufferToBase64 = function (buffer) {
     return _bufferToBase64(buffer);
   };
+  ImgClip.prototype.bufferToBytes = function (buffer) {
+    return _bufferToBytes(buffer);
+  };
+
   ImgClip.prototype.imgurlToBase64 = function (imgurl) {
     return _imgurlToBase64(imgurl);
   };
@@ -195,6 +199,10 @@ var ImgClip = /** @class */ (function () {
   ImgClip.bufferToBase64 = function(buffer) {
     return this.imgclip.bufferToBase64(buffer);
   };
+  ImgClip.bufferToBytes = function(buffer) {
+    return this.imgclip.bufferToBytes(buffer);
+  };
+
   ImgClip.imgurlToBase64 = function(imgurl) {
     return this.imgclip.imgurlToBase64(imgurl);
   };

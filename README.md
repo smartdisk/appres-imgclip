@@ -59,6 +59,8 @@ var image = new Image(1000, 1000);
 let blobCallback = (blob) => {
     console.log("blob size:" + blob.size);
     console.log("blob type:" + blob.type);
+    let base64Img = ImgClip.bufferToBase64(blob.arrayBuffer());
+    let bytesImg = ImgClip.bufferToBytes(blob.arrayBuffer());
 };
 ImgClip.resize(image, { width: 200, height: 200, type: 'jpg', blobCallback: blobCallback });
 
@@ -66,7 +68,7 @@ ImgClip.resize(image, { width: 200, height: 200, type: 'jpg', blobCallback: blob
 // For Base64
 // 
 var image = new Image(1000, 1000);
-var base64Image = ImgClip.resize(image, { width: 200, height: 200, type: 'jpg' });
+var base64Img = ImgClip.resize(image, { width: 200, height: 200, type: 'jpg' });
 
 
 // Image type :
