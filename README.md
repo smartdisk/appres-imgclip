@@ -58,11 +58,14 @@ ImgClip.paste((url) => {
 var image = new Image(1000, 1000);
 let blobCallback = (blob) => {
     console.log("blob size:" + blob.size);
-    console.log("blob type:" + blob.type);
-    let base64Img = ImgClip.bufferToBase64(blob.arrayBuffer());
-    let bytesImg = ImgClip.bufferToBytes(blob.arrayBuffer());
+    console.log("blob type:" + blob.type);    
+    blob.arrayBuffer().then(buffer => {
+        let base64Img = ImgClip.bufferToBase64(buffer);
+        let bytesImg = ImgClip.bufferToBytes(buffer);
+    });
 };
 ImgClip.resize(image, { width: 200, height: 200, type: 'jpg', blobCallback: blobCallback });
+
 
 // 
 // For Base64
