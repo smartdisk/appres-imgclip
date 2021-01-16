@@ -1,6 +1,6 @@
 {
   "name": "@appres/imgclip",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Image Clip functions",
   "main": "index.js",
   "types": "index.d.ts",

@@ -168,6 +168,12 @@ var ImgClip = /** @class */ (function () {
     }
   };
 
+  ImgClip.prototype.createUrl = function (blob) {
+    let URLOBJ = window.URL || window.webkitURL;
+    let blobUrl = URLOBJ.createObjectURL(blob);
+    return blobUrl;
+  };
+
   ImgClip.prototype.revoke = function(imgurl) {
     let URLOBJ = window.URL || window.webkitURL;
     URLOBJ.revokeObjectURL(imgurl);  
@@ -203,6 +209,9 @@ var ImgClip = /** @class */ (function () {
   ImgClip.imgclip = new ImgClip();
   ImgClip.paste = function(listener) {
     return this.imgclip.paste(listener);
+  };
+  ImgClip.createUrl = function(blob) {
+    return this.imgclip.createUrl(blob);
   };
   ImgClip.revoke = function(imgurl) {
     return this.imgclip.revoke(imgurl);
