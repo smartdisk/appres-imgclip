@@ -120,13 +120,25 @@ var ImgClip = /** @class */ (function () {
     context.drawImage(img, 0, 0, newSize.width, newSize.height);
     return canvas;
   };
-  const _resize = (img, options) => {
-    if(options.type=="jpg") options.type = "jpeg";
-    if(IMG_TYPE.indexOf(options.type) < 0) {
-      options.type = IMG_TYPE_PNG;
+  const _hasAlpha = (canvas, context) => {
+    var data = context.getImageData(0, 0, canvas.width, canvas.height).data,
+    hasAlphaPixels = false;
+    for (var i = 3, n = data.length; i < n; i+=4) {
+      if (data[i] < 255) {
+          hasAlphaPixels = true;
+          break;
+      }
     }
+    return hasAlphaPixels;
+  };
+
+  const _resize = (img, options) => {
     var canvas = _resize2Canvas(img, options);
     var context = canvas.getContext('2d');
+    if(options.type=="jpg") options.type = "jpeg";
+    if(IMG_TYPE.indexOf(options.type) < 0) {
+      options.type = _hasAlpha(canvas, context) ? "png" : "jpeg";
+    }
     if(options.type !== IMG_TYPE_PNG) {
       context.globalCompositeOperation = 'destination-over';
       context.fillStyle = '#fff';

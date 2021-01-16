@@ -71,12 +71,13 @@ ImgClip.resize(image, { width: 200, height: 200, type: 'jpg', blobCallback: blob
 // For Base64
 // 
 var image = new Image(1000, 1000);
-var base64Img = ImgClip.resize(image, { width: 200, height: 200, type: 'jpg' });
+var base64Img = ImgClip.resize(image, { width: 200, height: 200, type: 'auto' });
 
 
 // Image type :
-//    'png', 'gif', 'bmp', 'jpg', 'jpeg', 'webp'
-//     default is 'png'
-//    'jpg' will be to 'jpeg'
+//    'png', 'gif', 'bmp', 'jpeg', 'webp'
+//     You can use 'jpg'. That will be change to 'jpeg' inside function.
+//     The default is automatically set to jpg or png. 
+//     It depends on the presence of an alpha channel.
 
 ```
