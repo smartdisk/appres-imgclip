@@ -239,6 +239,10 @@ var ImgClip = /** @class */ (function () {
   ImgClip.bufferToBytes = function(buffer) {
     return this.imgclip.bufferToBytes(buffer);
   };
+  ImgClip.bufferToArray = function(buffer) {
+    return this.imgclip.bufferToArray(buffer);
+  };
+
 
   ImgClip.imgurlToBase64 = function(imgurl) {
     return this.imgclip.imgurlToBase64(imgurl);
