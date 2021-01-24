@@ -14,6 +14,10 @@ export declare class ImgClip {
   static bufferToBytes(buffer: any): any;
   bufferToBytes(buffer: any): any;
 
+  static bufferToArray(buffer: any): any;
+  bufferToArray(buffer: any): any;
+
+
   static imgurlToBase64(imgurl: any): Promise<any>;
   imgurlToBase64(imgurl: any): Promise<any>; 
   

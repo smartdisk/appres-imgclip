@@ -2,6 +2,7 @@
 
 const UrlEx = require('@appres/url');
 const domino = require('domino');
+const btoa = require('btoa');
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var ImgClip = /** @class */ (function () {
@@ -55,7 +56,10 @@ var ImgClip = /** @class */ (function () {
     for (var i = 0; i < len; i++) {
         binary += String.fromCharCode( bytes[ i ] );
     }
-    return window.btoa( binary );
+    if(window && window.btoa) {
+      return window.btoa( binary );
+    }
+    return btoa( binary );
   };
   const _bufferToBytes = (buffer) => {
     var binary = '';
@@ -65,6 +69,9 @@ var ImgClip = /** @class */ (function () {
         binary += String.fromCharCode( bytes[ i ] );
     }
     return binary;
+  };
+  const _bufferToArray = (buffer) => {
+    return new Uint8Array( buffer );
   };
   const _imgurlToReadable = (imgurl) => {
     return fetch(imgurl).then(res => {
@@ -190,6 +197,9 @@ var ImgClip = /** @class */ (function () {
   };
   ImgClip.prototype.bufferToBytes = function (buffer) {
     return _bufferToBytes(buffer);
+  };
+  ImgClip.prototype.bufferToArray = function (buffer) {
+    return _bufferToArray(buffer);
   };
 
   ImgClip.prototype.imgurlToBase64 = function (imgurl) {
