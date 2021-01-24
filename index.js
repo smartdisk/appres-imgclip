@@ -1,6 +1,7 @@
 'use strict';
 
 const UrlEx = require('@appres/url');
+const domino = require('domino');
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var ImgClip = /** @class */ (function () {
@@ -9,6 +10,11 @@ var ImgClip = /** @class */ (function () {
   var IMG_TYPE = [IMG_TYPE_PNG, 'gif', 'bmp', 'jpeg', 'webp'];
 
   function ImgClip() {
+    if(global['window']==null) {
+      const winObj = domino.createWindow('<html></html>');
+      global['window'] = winObj;
+      global['document'] = winObj.document;
+    }
     for (var i = 0; i < IMG_TYPE.length; i++) {
       ImgClip[IMG_TYPE[i].toUpperCase()] = IMG_TYPE[i];
     }  

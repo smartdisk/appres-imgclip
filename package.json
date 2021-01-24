@@ -1,6 +1,6 @@
 {
   "name": "@appres/imgclip",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Image Clip functions",
   "main": "index.js",
   "types": "index.d.ts",
@@ -26,6 +26,7 @@
   "author": "APPRES.ORG",
   "license": "MIT",
   "dependencies": {
-    "@appres/url": "^0.0.7"
+    "@appres/url": "^0.0.7",
+    "domino": "^2.1.6"
   }
 }
