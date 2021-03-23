@@ -232,6 +232,9 @@ var ImgClip = /** @class */ (function () {
   ImgClip.paste = function(listener) {
     return this.imgclip.paste(listener);
   };
+  ImgClip.release = function(paster) {
+    return this.imgclip.release(paster);
+  };
   ImgClip.createUrl = function(blob) {
     return this.imgclip.createUrl(blob);
   };
