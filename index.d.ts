@@ -1,6 +1,9 @@
 export declare class ImgClip {
-  static paste(listener: function(url)): void;
-  paste(listener: function(url)): void;  
+  static paste(listener: function(url)): object;
+  paste(listener: function(url)): object;  
+
+  static release(paster: object): void;
+  release(paster: object): void;  
 
   static createUrl(blob: any): string;
   createUrl(blob: any): string;  

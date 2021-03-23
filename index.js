@@ -167,7 +167,7 @@ var ImgClip = /** @class */ (function () {
 
   ImgClip.prototype.paste = function (listener) {
     if(typeof(listener) == "function"){
-      window.addEventListener("paste", (event) => {   
+      let paster = function (event){   
         pasteImage(event, (image) => {
           if(isURL(image)) {
             listener(image.toString());
@@ -177,8 +177,14 @@ var ImgClip = /** @class */ (function () {
             listener(imgurl);  
           }
         });
-      }, false);
+      };
+      window.addEventListener("paste", paster, false);
+      return paster;
     }
+    return null;
+  };
+  ImgClip.prototype.release = function (paster) {
+    window.removeEventListener("paste", paster, false);
   };
 
   ImgClip.prototype.createUrl = function (blob) {
