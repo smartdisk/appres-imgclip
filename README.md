@@ -1,4 +1,4 @@
-# Image Clip related functions
+# Image Clip related functions V0.0.18
 
 # Install
 ```

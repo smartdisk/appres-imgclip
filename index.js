@@ -1,7 +1,7 @@
 'use strict';
 
 const UrlEx = require('@appres/url');
-const domino = require('domino');
+const domino = require('@mathpix/domino');
 const btoa = require('btoa');
 
 Object.defineProperty(exports, "__esModule", { value: true });
